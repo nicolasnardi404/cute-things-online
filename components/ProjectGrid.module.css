@@ -1,0 +1,35 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.project {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-pink);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+.image {
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-baby-blue);
+}
+
+.description {
+  font-size: 0.8rem;
+  color: var(--color-light-gray);
+}
+

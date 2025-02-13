@@ -1,0 +1,13 @@
+.container {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.character {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.1s ease-out;
+}
+
