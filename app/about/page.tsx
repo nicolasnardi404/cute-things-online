@@ -5,25 +5,24 @@ import Header from "@/components/Header"
 import RetroLoading from "@/components/RetroLoading"
 import { motion } from "framer-motion"
 import styles from "../../styles/about.module.css"
+import Image from "next/image"
 
 const aboutSections = [
   {
     id: 1,
     title: "",
     content: "This project is a love letter to the creative possibilities of technology. Whether you're an artist curious about AI, a coder exploring creativity, or just someone who loves cute little weird things.",
-    image: "/public/cute-things-online.png"
+    image: "/images/cute-things-online.png"
   },
   {
     id: 2,
     title: "What We Do",
     content: "Here we share beautiful internet landscapes - aka cute websites - mixing a bit of art and a bit of code to play around the fields of the cyber world.",
-    image: "/images/pixel-mission.png"
   },
   {
     id: 3,
     title: "Join Our Journey",
     content: "So grab a cup of tea, cozy up, and let's dive into the wonderful world of art, code, and AI—one cute thing at a time. 💖",
-    image: "/images/pixel-community.png"
   }
 ]
 
@@ -66,8 +65,21 @@ export default function AboutPage() {
                   onClick={() => setActiveSection(section.id)}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <h2 className={styles.sectionTitle}>{section.title}</h2>
-                  <p className={styles.sectionContent}>{section.content}</p>
+                  <div className={styles.sectionContent}>
+                    {section.image && (
+                      <Image 
+                        src={section.image}
+                        alt={section.title || "About section image"}
+                        width={200}
+                        height={200}
+                        className={styles.sectionImage}
+                      />
+                    )}
+                    <div>
+                      <h2 className={styles.sectionTitle}>{section.title}</h2>
+                      <p>{section.content}</p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
