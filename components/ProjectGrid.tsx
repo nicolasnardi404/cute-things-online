@@ -1,14 +1,16 @@
 import Image from "next/image"
 import styles from "./ProjectGrid.module.css"
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card"
+import { motion } from "framer-motion"
 
 
 type Project = {
   id: string
   title: string
   description: string
-  imageUrl: string
   tags?: string[]
+  link?: string
+  bgColor?: string
 }
 
 type ProjectGridProps = {
@@ -21,28 +23,44 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
       {projects.map((project) => (
         <HoverCard key={project.id}>
           <HoverCardTrigger asChild>
-            <div className={styles.project}>
-              <Image
-                src={project.imageUrl || "/placeholder.svg"}
-                alt={project.title}
-                width={200}
-                height={200}
-                className={styles.image}
-              />
+            <motion.div 
+              className={styles.project}
+              onClick={() => project.link && window.open(project.link, '_blank')}
+              style={{ 
+                cursor: project.link ? 'pointer' : 'default',
+                backgroundColor: project.bgColor || 'var(--color-white)'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
               <h3 className={styles.title}>{project.title}</h3>
-            </div>
-          </HoverCardTrigger>
-          <HoverCardContent className="w-80">
-            <div className="space-y-2">
-              <h4 className="text-sm font-semibold">{project.title}</h4>
-              <p className="text-sm">{project.description}</p>
-              <div className="flex gap-2">
+              <p className={styles.description}>{project.description}</p>
+              <div className={styles.tags}>
                 {project.tags?.map((tag) => (
-                  <span key={tag} className="text-xs bg-accent px-2 py-1 rounded">
+                  <span key={tag} className={styles.tag}>
                     {tag}
                   </span>
                 ))}
               </div>
+            </motion.div>
+          </HoverCardTrigger>
+          <HoverCardContent className={styles.hoverContent}>
+            <div className={styles.hoverInner}>
+              <h4 className={styles.hoverTitle}>{project.title}</h4>
+              <p className={styles.hoverDescription}>{project.description}</p>
+              {project.link && (
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={styles.visitLink}
+                >
+                  Visit Project →
+                </a>
+              )}
             </div>
           </HoverCardContent>
         </HoverCard>
