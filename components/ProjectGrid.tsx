@@ -21,21 +21,22 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
   return (
     <div className={styles.grid}>
       {projects.map((project) => (
-        <HoverCard key={project.id}>
-          <HoverCardTrigger asChild>
-            <motion.div 
-              className={styles.project}
-              onClick={() => project.link && window.open(project.link, '_blank')}
-              style={{ 
-                cursor: project.link ? 'pointer' : 'default',
-                backgroundColor: project.bgColor || 'var(--color-white)'
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
+        <motion.div 
+          key={project.id}
+          className={`${styles.project} ${project.bgColor === 'var(--color-baby-blue)' ? styles.blueCard : ''}`}
+          onClick={() => project.link && window.open(project.link, '_blank')}
+          style={{ 
+            cursor: project.link ? 'pointer' : 'default',
+            backgroundColor: project.bgColor || 'var(--color-white)'
+          }}
+          whileHover={{ 
+            scale: 1.05,
+            boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
+          }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div className={styles.content}>
+            <div className={styles.defaultContent}>
               <h3 className={styles.title}>{project.title}</h3>
               <div className={styles.mobileDescription}>{project.description}</div>
               <div className={styles.tags}>
@@ -45,20 +46,20 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
                   </span>
                 ))}
               </div>
-            </motion.div>
-          </HoverCardTrigger>
-          <HoverCardContent className={styles.hoverContent}>
-            <p className={styles.description}>{project.description}</p>
-            <a 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.visitLink}
-            >
-              Visit →
-            </a>
-          </HoverCardContent>
-        </HoverCard>
+            </div>
+            <div className={styles.hoverContent}>
+              <p className={styles.description}>{project.description}</p>
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.visitLink}
+              >
+                Visit →
+              </a>
+            </div>
+          </div>
+        </motion.div>
       ))}
     </div>
   )
