@@ -37,7 +37,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               whileTap={{ scale: 0.95 }}
             >
               <h3 className={styles.title}>{project.title}</h3>
-              <p className={styles.description}>{project.description}</p>
+              <div className={styles.mobileDescription}>{project.description}</div>
               <div className={styles.tags}>
                 {project.tags?.map((tag) => (
                   <span key={tag} className={styles.tag}>
@@ -48,20 +48,15 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
             </motion.div>
           </HoverCardTrigger>
           <HoverCardContent className={styles.hoverContent}>
-            <div className={styles.hoverInner}>
-              <h4 className={styles.hoverTitle}>{project.title}</h4>
-              <p className={styles.hoverDescription}>{project.description}</p>
-              {project.link && (
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.visitLink}
-                >
-                  Visit Project →
-                </a>
-              )}
-            </div>
+            <p className={styles.description}>{project.description}</p>
+            <a 
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.visitLink}
+            >
+              Visit →
+            </a>
           </HoverCardContent>
         </HoverCard>
       ))}
