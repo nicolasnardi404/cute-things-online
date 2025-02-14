@@ -1,7 +1,7 @@
 "use client"
 
 import Header from "@/components/Header"
-import styles from "./page.module.css"
+import styles from "../../styles/suport.module.css"
 import { motion } from "framer-motion"
 
 const supportOptions = [
