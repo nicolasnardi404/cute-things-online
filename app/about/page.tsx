@@ -1,8 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Header from "@/components/Header"
-import RetroLoading from "@/components/RetroLoading"
 import { motion } from "framer-motion"
 import styles from "../../styles/about.module.css"
 import Image from "next/image"
@@ -27,14 +26,8 @@ const aboutSections = [
 ]
 
 export default function AboutPage() {
-  const [isLoading, setIsLoading] = useState(true)
   const [activeSection, setActiveSection] = useState(1)
 
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000)
-  }, [])
-
-  if (isLoading) return <RetroLoading />
 
   return (
     <div className={styles.container}>

@@ -3,6 +3,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import LoadingWrapper from "../components/LoadingWrapper"
 
 const pressStart2P = Press_Start_2P({
   weight: "400",
@@ -11,7 +12,7 @@ const pressStart2P = Press_Start_2P({
 })
 
 const courierPrime = Courier_Prime({
-  weight: ["400", "700"],
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-courier-prime",
 })
@@ -19,7 +20,7 @@ const courierPrime = Courier_Prime({
 export const metadata = {
   title: "CUTE THINGS ONLINE",
   description: "A cozy corner of the internet for cute pixel art and creative projects",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -30,17 +31,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${pressStart2P.variable} ${courierPrime.variable}`}>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider>
-            {children}
-            <Toaster />
-          </TooltipProvider>
-        </ThemeProvider>
+        <LoadingWrapper>
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <TooltipProvider>
+              {children}
+              <Toaster />
+            </TooltipProvider>
+          </ThemeProvider>
+        </LoadingWrapper>
       </body>
     </html>
   )
 }
-
-
 
 import './globals.css'
