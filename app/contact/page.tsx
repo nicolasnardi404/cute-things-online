@@ -1,8 +1,7 @@
 "use client"
 
 import Header from "@/components/Header"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import styles from "../../styles/contact.module.css"
 import { useToast } from "@/components/ui/use-toast"
 import { Progress } from "@/components/ui/progress"
 import { useState } from "react"
@@ -20,8 +19,8 @@ export default function ContactPage() {
         if (prev >= 100) {
           clearInterval(interval)
           toast({
-            title: "Message Sent!",
-            description: "We'll get back to you soon.",
+            title: "Message Sent! 💌",
+            description: "We'll get back to you soon with lots of cute energy! ✨",
           })
           return 100
         }
@@ -31,32 +30,30 @@ export default function ContactPage() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
-      <main className="p-8">
-        <Card className="max-w-md mx-auto">
-          <CardHeader>
-            <CardTitle className="text-center text-pink">Contact Us</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full p-2 border-2 border-pink rounded"
-              />
-              <textarea
-                placeholder="Your Message"
-                className="w-full p-2 border-2 border-pink rounded"
-                rows={4}
-              />
-              <Button type="submit" className="w-full">
-                Send Message
-              </Button>
-              {progress > 0 && <Progress value={progress} className="mt-4" />}
-            </form>
-          </CardContent>
-        </Card>
+      <main className={styles.main}>
+        <div className={styles.card}>
+          <h1 className={styles.title}>Send us a Message</h1>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <input
+              type="email"
+              placeholder="Your Email"
+              className={styles.input}
+              required
+            />
+            <textarea
+              placeholder="Your Message"
+              className={styles.textarea}
+              rows={4}
+              required
+            />
+            <button type="submit" className={styles.button}>
+              Send Message ✨
+            </button>
+            {progress > 0 && <Progress value={progress} className={styles.progress} />}
+          </form>
+        </div>
       </main>
     </div>
   )
