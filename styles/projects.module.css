@@ -1,0 +1,68 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-lavender);
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--color-white);
+  border: 4px solid var(--color-pink);
+  border-radius: 8px;
+  box-shadow: 0 0 0 4px var(--color-baby-blue);
+}
+
+.title {
+  font-family: var(--font-press-start-2p);
+  font-size: 2rem;
+  color: var(--color-pink);
+  text-shadow: 2px 2px var(--color-baby-blue);
+}
+
+.filterButton {
+  font-family: var(--font-press-start-2p);
+  font-size: 0.8rem;
+  border: 2px solid var(--color-pink);
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px var(--color-baby-blue);
+}
+
+.filterContent {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-pink);
+}
+
+.filterOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterOption {
+  font-family: var(--font-press-start-2p);
+  font-size: 0.8rem;
+  width: 100%;
+  text-align: left;
+}
+
+.filterOption:hover {
+  background-color: var(--color-baby-blue);
+  color: var(--color-white);
+} 

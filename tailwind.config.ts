@@ -60,7 +60,10 @@ const config: Config = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+  			'pink': 'var(--color-pink)',
+  			'lavender': 'var(--color-lavender)',
+  			'baby-blue': 'var(--color-baby-blue)',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -88,6 +91,9 @@ const config: Config = {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
+  		},
+  		fontFamily: {
+  			'press-start-2p': ['var(--font-press-start-2p)'],
   		}
   	}
   },

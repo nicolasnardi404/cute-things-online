@@ -1,7 +1,8 @@
 import { Press_Start_2P, Courier_Prime } from "next/font/google"
 import "./globals.css"
-import type React from "react" // Import React
-import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 const pressStart2P = Press_Start_2P({
   weight: "400",
@@ -29,8 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${pressStart2P.variable} ${courierPrime.variable}`}>
       <body>
-        {children}
-        <Toaster />
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <TooltipProvider>
+            {children}
+            <Toaster />
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

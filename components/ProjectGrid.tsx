@@ -1,6 +1,7 @@
 import Image from "next/image"
 import styles from "./ProjectGrid.module.css"
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card"
+
 
 type Project = {
   id: string

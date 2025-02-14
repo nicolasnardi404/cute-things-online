@@ -11,7 +11,7 @@ export default function Home() {
     // Simulate loading time
     setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
+    }, 500)
   }, [])
 
   if (isLoading) {
