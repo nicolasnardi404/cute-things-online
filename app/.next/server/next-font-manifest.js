@@ -1,1 +1,0 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/esquizociborgue/Documents/code/cto/cute-things-online-v2/app/layout\":[\"static/media/0cf099edf3f2badd-s.p.woff2\",\"static/media/a251452556402cc8-s.p.woff2\",\"static/media/9b8c15de1de72117-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
