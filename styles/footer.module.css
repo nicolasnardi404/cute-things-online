@@ -1,0 +1,15 @@
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  color: var(--color-baby-blue);
+  font-size: 0.75rem;
+  font-family: var(--font-courier-prime);
+  background-color: var(--color-white);
+  border-top: 4px solid var(--color-pink);
+  font-family: '__Press_Start_2P_3757f2';
+}
+
+.footer p {
+  margin: 0.25rem 0;
+} 
