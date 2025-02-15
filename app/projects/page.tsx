@@ -28,6 +28,30 @@ const projects = [
     tags: ["Game", "Retro", "Interactive", "Pixel Art"],
     link: "https://snakeonmushrooms.nadinicoco.com",
     bgColor: "var(--color-lavender)"
+  },
+  {
+    id: "4",
+    title: "NADI NICOCO",
+    description: "An experimental portfolio showcasing a Brazilian artist's work with text, image, and sound. Explore an interactive journey through various media and artistic expressions.",
+    tags: ["Art", "Portfolio", "Multimedia"],
+    link: "https://nadinicoco.com",
+    bgColor: "var(--color-lavender)"
+  },
+  {
+    id: "5",
+    title: "QUARTO AMBIENTE",
+    description: "Archive of a Brazilian art collective's experimental films, zines, and performances from 2014-2016. Download zines and explore their artistic legacy through an interactive gallery.",
+    tags: ["Art", "Archive", "Collective", "Zines"],
+    link: "https://quartoambiente.com.br",
+    bgColor: "var(--color-pink)"
+  },
+  {
+    id: "6",
+    title: "CYBER PLANTA",
+    description: "An AI-driven platform sharing knowledge about bio-agriculture, fungi, and eco-feminism through an interactive chatbot. Featuring AI-generated content about biodiversity and sustainability.",
+    tags: ["AI", "Education", "Sustainability", "Interactive"],
+    link: "https://cyberplanta.com",
+    bgColor: "var(--color-baby-blue)"
   }
 ]
 
