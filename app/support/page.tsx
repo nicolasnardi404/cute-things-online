@@ -14,7 +14,7 @@ const supportOptions = [
       },
   {
     title: "Hire Us",
-    description: "Need a cute website or design? Let's work together to bring your vision to life! Contact me to discuss your project 🌟",
+    description: "Need a cute website or design? Let's work together to bring your vision to life! Contact us to discuss your project 🌟",
     link: "/contact",
     icon: "/images/robots-working.png"
   }
