@@ -12,9 +12,9 @@ export default function Header() {
         <Link href="/about" className={styles.navLink}>
           About
         </Link>
-        <Link href="/projects" className={styles.navLink}>
+        {/* <Link href="/projects" className={styles.navLink}>
           Projects
-        </Link>
+        </Link> */}
         <Link href="/blog" className={styles.navLink}>
           Blog
         </Link>

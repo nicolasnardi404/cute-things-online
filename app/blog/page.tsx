@@ -2,6 +2,7 @@ import Header from "@/components/Header"
 import styles from "../../styles/blog.module.css"
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Link from 'next/link'
 
 // Move the client creation to a separate utility file
 const client = createClient({
@@ -23,6 +24,7 @@ interface BlogPost {
   content: any  // Rich text content from Contentful
   videoLink?: string // Optional since some posts might not have videos
   bgColor: string
+  slug: string  // Add slug for URL routing
 }
 
 // Helper function to ensure URL has proper format
@@ -48,7 +50,7 @@ export default async function BlogPage() {
       title: item.fields.title,
       content: item.fields.content,
       videoLink: formatUrl(item.fields.linkVideo),
-      bgColor: bgColors[index % bgColors.length] // Cycle through colors
+      bgColor: bgColors[index % bgColors.length],
     }
   })
 
@@ -70,20 +72,9 @@ export default async function BlogPage() {
               className={styles.post}
               style={{ backgroundColor: post.bgColor }}
             >
-              <h2 className={styles.postTitle}>{post.title}</h2>
-              <div className={styles.summary}>
-                {documentToReactComponents(post.content)}
-              </div>
-              {post.videoLink && (
-                <a 
-                  href={post.videoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.readMore}
-                >
-                  Watch Video →
-                </a>
-              )}
+              <Link href={`/blog/${post.id}`} className={styles.postLink}>
+                <h2 className={styles.postTitleBlog}>{post.title}</h2>
+              </Link>
             </article>
           ))}
         </div>
