@@ -19,6 +19,18 @@ function formatUrl(url: string) {
   return url
 }
 
+function getYoutubeVideoId(url: string) {
+  const formattedUrl = formatUrl(url);
+  const urlObj = new URL(formattedUrl);
+  
+  if (urlObj.hostname.includes('youtube.com')) {
+    return urlObj.searchParams.get('v');
+  } else if (urlObj.hostname.includes('youtu.be')) {
+    return urlObj.pathname.substring(1);
+  }
+  return null;
+}
+
 export default async function BlogPost({ params }: { params: { slug: string } }) {
   const response = await client.getEntry(params.slug)
     .catch(() => null);
@@ -39,15 +51,16 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             {documentToReactComponents(response.fields.content)}
           </div>
           {response.fields.linkVideo && (
-            <div className={styles.videoLinkContainer}>
-              <a 
-                href={formatUrl(response.fields.linkVideo)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.videoLink}
-              >
-                Watch Video ✨
-              </a>
+            <div className={styles.videoContainer}>
+              <iframe
+                width="100%"
+                height="480"
+                src={`https://www.youtube.com/embed/${getYoutubeVideoId(response.fields.linkVideo)}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           )}
         </article>

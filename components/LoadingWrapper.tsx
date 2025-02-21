@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import RetroLoading from "./RetroLoading"
 
-export default function LoadingWrapper({
+export default function     LoadingWrapper({
   children,
 }: {
   children: React.ReactNode
