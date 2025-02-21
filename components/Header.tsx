@@ -16,7 +16,7 @@ export default function Header() {
           Projects
         </Link> */}
         <Link href="/blog" className={styles.navLink}>
-          Blog
+          Videos
         </Link>
         <Link href="/support" className={styles.navLink}>
           Support

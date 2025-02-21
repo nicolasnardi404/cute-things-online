@@ -1,84 +1,75 @@
 import Header from "@/components/Header"
-import styles from "../../styles/blog.module.css"
+import styles from "../../styles/about.module.css"
 import { createClient } from 'contentful'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import Link from 'next/link'
+import { useState } from 'react'
 
-// Move the client creation to a separate utility file
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
 })
 
-// Using the same colors as projects page
-const bgColors = [
-  'var(--color-pink)',
-  'var(--color-baby-blue)',
-  'var(--color-lavender)',
-]
-
-// Update interface to match actual fields
-interface BlogPost {
-  id: string
-  title: string
-  content: any  // Rich text content from Contentful
-  videoLink?: string // Optional since some posts might not have videos
-  bgColor: string
-  slug: string  // Add slug for URL routing
-}
-
-// Helper function to ensure URL has proper format
-const formatUrl = (url: string) => {
-  if (!url) return null
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    return url
+function getYoutubeVideoId(url: string) {
+  if (!url) return null;
+  try {
+    const urlObj = new URL(url.startsWith('www.') ? `https://${url}` : url);
+    if (urlObj.hostname.includes('youtube.com')) {
+      return urlObj.searchParams.get('v');
+    } else if (urlObj.hostname.includes('youtu.be')) {
+      return urlObj.pathname.substring(1);
+    }
+  } catch (e) {
+    return null;
   }
-  return `https://${url}`
+  return null;
 }
 
-// Make the component async to fetch data server-side
-export default async function BlogPage() {
-  // Fetch posts server-side
+export default async function BlogPosts() {
   const response = await client.getEntries({
     content_type: 'cuteThingsOnlineBlog',
-  })
+    select: ['fields.title', 'fields.linkVideo', 'fields.tags']
+  });
 
-
-  const blogPosts = response.items.map((item: any, index: number) => {
-    return {
-      id: item.sys.id,
-      title: item.fields.title,
-      content: item.fields.content,
-      videoLink: formatUrl(item.fields.linkVideo),
-      bgColor: bgColors[index % bgColors.length],
-    }
-  })
-
-  // Log the processed posts
-  console.log('Processed Blog Posts:', blogPosts)
+  const posts = response.items.map(item => ({
+    title: item.fields.title,
+    videoLink: item.fields.linkVideo,
+    tags: item.fields.tags || [],
+  }));
 
   return (
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>Cute Blog</h1>
-          <p className={styles.subtitle}>Exploring the intersection of cuteness and technology ✨</p>
+        <div className={styles.tagsFilter}>
+          {/* We can implement tag filtering here later */}
         </div>
-        <div className={styles.grid}>
-          {blogPosts.map((post) => (
-            <article 
-              key={post.id} 
-              className={styles.post}
-              style={{ backgroundColor: post.bgColor }}
-            >
-              <Link href={`/blog/${post.id}`} className={styles.postLink}>
-                <h2 className={styles.postTitleBlog}>{post.title}</h2>
-              </Link>
+        <div className={styles.postsGrid}>
+          {posts.map((post, index) => (
+            <article key={index} className={styles.postCard}>
+              <h2 className={styles.title}>{post.title}</h2>
+              {post.videoLink && (
+                <div className={styles.videoContainer}>
+                  <iframe
+                    width="100%"
+                    height="215"
+                    src={`https://www.youtube.com/embed/${getYoutubeVideoId(post.videoLink)}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
+              <div className={styles.tagsList}>
+                {post.tags.map((tag: string, tagIndex: number) => (
+                  <span key={tagIndex} className={styles.tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </article>
           ))}
         </div>
       </main>
     </div>
   )
-} 
+}
