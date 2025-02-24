@@ -36,7 +36,7 @@ export default function AboutPage() {
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className={styles.header}
+          className={styles.hero}
         >
           <h1 className={styles.title}>About Us</h1>
           <p className={styles.subtitle}>Welcome to our pixelated wonderland!</p>

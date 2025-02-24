@@ -104,44 +104,8 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* About Section */}
-          <motion.section 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className={styles.about}
-          >
-            <motion.div className={styles.card}>
-              <div className={styles.sections}>
-                {aboutSections.map((section) => (
-                  <motion.div
-                    key={section.id}
-                    className={`${styles.section} ${
-                      activeSection === section.id ? styles.active : ""
-                    }`}
-                    onClick={() => setActiveSection(section.id)}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className={styles.sectionContent}>
-                      {section.image && (
-                        <Image 
-                          src={section.image}
-                          alt={section.title || "About section image"}
-                          width={200}
-                          height={200}
-                          className={styles.sectionImage}
-                        />
-                      )}
-                      <div>
-                        <h2 className={styles.sectionTitle}>{section.title}</h2>
-                        <p>{section.content}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.section>
+   
+           
 
           {/* Projects Section */}
           <section className={styles.projects}>
@@ -150,6 +114,7 @@ export default function Home() {
               <ProjectGrid projects={projects} />
             </div>
           </section>
+
         </div>
       </main>
     </div>
