@@ -1,5 +1,5 @@
 import Header from "@/components/Header"
-import styles from "../../styles/about.module.css"
+import styles from "../../styles/blog.module.css"
 import { createClient } from 'contentful'
 import { useState } from 'react'
 
@@ -42,10 +42,10 @@ export default async function BlogPosts() {
         <div className={styles.tagsFilter}>
           {/* We can implement tag filtering here later */}
         </div>
-        <div className={styles.postsGrid}>
+        <div className={styles.grid}>
           {posts.map((post, index) => (
-            <article key={index} className={styles.postCard}>
-              <h2 className={styles.title}>{post.title}</h2>
+            <article key={index} className={styles.post}>
+              <h2 className={styles.postTitleBlog}>{post.title}</h2>
               {post.videoLink && (
                 <div className={styles.videoContainer}>
                   <iframe
@@ -59,7 +59,7 @@ export default async function BlogPosts() {
                   ></iframe>
                 </div>
               )}
-              <div className={styles.tagsList}>
+              <div className={styles.tags}>
                 {post.tags.map((tag: string, tagIndex: number) => (
                   <span key={tagIndex} className={styles.tag}>
                     {tag}
