@@ -35,12 +35,18 @@
   font-size: 1.2rem;
   color: var(--color-baby-blue);
 }
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+
+/* Add this new class */
+.grid article:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .post {
@@ -127,6 +133,9 @@
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+    
   }
   
   .title {
@@ -135,6 +144,10 @@
   
   .subtitle {
     font-size: 1rem;
+  }
+  
+  .main {
+    padding: 0.5rem;
   }
 }
 
