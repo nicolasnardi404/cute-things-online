@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import LoadingWrapper from "../components/LoadingWrapper"
 import Footer from "@/components/Footer"
+import { Analytics } from "@vercel/analytics/react";
 
 const pressStart2P = Press_Start_2P({
   weight: "400",
@@ -39,6 +40,7 @@ export default function RootLayout({
                 <Footer />
               </div>
               <Toaster />
+              <Analytics />
             </TooltipProvider>
           </ThemeProvider>
         </LoadingWrapper>
