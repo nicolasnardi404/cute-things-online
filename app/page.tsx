@@ -7,25 +7,6 @@ import Image from "next/image"
 import styles from "./page.module.css"
 import ProjectGrid from "@/components/ProjectGrid"
 
-const aboutSections = [
-  {
-    id: 1,
-    title: "",
-    content: "This project is a love letter to the creative possibilities of technology. Whether you're an artist curious about AI, a coder exploring creativity, or just someone who loves cute little weird things.",
-    image: "/images/cute-things-online.png"
-  },
-  {
-    id: 2,
-    title: "What We Do",
-    content: "Here we share beautiful internet landscapes - aka cute websites - mixing a bit of art and a bit of code to play around the fields of the cyber world.",
-  },
-  {
-    id: 3,
-    title: "Join Our Journey",
-    content: "So grab a cup of tea, cozy up, and let's dive into the wonderful world of art, code, and AI—one cute thing at a time. 💖",
-  }
-]
-
 const projects = [
   {
     id: "1",

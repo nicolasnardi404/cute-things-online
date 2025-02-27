@@ -22,6 +22,18 @@ const courierPrime = Courier_Prime({
 export const metadata = {
   title: "CUTE THINGS ONLINE",
   description: "A cozy corner of the internet for cute pixel art and creative projects",
+  openGraph: {
+    title: "CUTE THINGS ONLINE",
+    description: "A cozy corner of the internet for cute pixel art and creative projects",
+    type: 'website',
+    url: 'https://cutethingsonline.com', 
+    siteName: "CUTE THINGS ONLINE",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "CUTE THINGS ONLINE",
+    description: "A cozy corner of the internet for cute pixel art and creative projects",
+  },
 }
 
 export default function RootLayout({
