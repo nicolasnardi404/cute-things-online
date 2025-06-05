@@ -18,7 +18,7 @@ const projects = [
     title: "I WANNA BE NADI NICOCO",
     description: "An AI-generated poetry blog inspired by Nadi Nicoco. Daily machine-generated poems in Nicoco's style, each exploring a random topic.",
     tags: ["AI", "Poetry", "Blog", "Art"],
-    link: "https://iwannabenadinicoco.com",
+    link: "https://iwannabe.nadinicoco.com",
     bgColor: "var(--color-baby-blue)"
   },
   {
