@@ -55,6 +55,14 @@ const projects = [
     tags: ["AI", "Education", "Sustainability", "Interactive"],
     link: "https://cyberplanta.com",
     bgColor: "var(--color-baby-blue)"
+  },
+  {
+    id: "7",
+    title: "EAT THE RICH",
+    description: "A retro-styled arcade game where you control a robot catching billionaires. Features cyberpunk aesthetics and satirical gameplay about wealth inequality.",
+    tags: ["Game", "Arcade", "Retro"],
+    link: "https://eat-the-rich.nadinicoco.com",
+    bgColor: "var(--color-pink)"
   }
 ]
 
