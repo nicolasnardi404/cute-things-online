@@ -6,32 +6,39 @@ import RetroLoading from "../../components/RetroLoading"
 
 const websites = [
   {
+    id: "0",
+    title: "CUTE THINGS ONLINE",
+    description: "A cozy corner of the internet for pixel art, creative projects, and all things cute!",
+    link: "https://cutethingsonline.com",
+    bgColor: "var(--color-pink)"
+  },
+  {
     id: "1",
     title: "Random Rainbow",
     description: "A cyber art project connecting queer video art through random experiences.",
     link: "https://randomrainbow.art",
-    bgColor: "var(--color-pink)"
+    bgColor: "var(--color-baby-blue)"
   },
   {
     id: "2",
     title: "I WANNA BE NADI NICOCO",
     description: "An AI-generated poetry blog inspired by Nadi Nicoco.",
     link: "https://iwannabe.nadinicoco.com",
-    bgColor: "var(--color-baby-blue)"
+    bgColor: "var(--color-lavender)"
   },
   {
     id: "4",
     title: "NADI NICOCO",
     description: "Art Portfolio.",
     link: "https://nadinicoco.com",
-    bgColor: "var(--color-lavender)"
+    bgColor: "var(--color-pink)"
   },
   {
     id: "5",
     title: "QUARTO AMBIENTE",
     description: "Archive of artworks of the collective Quarto Ambiente",
     link: "https://quartoambiente.com.br",
-    bgColor: "var(--color-pink)"
+    bgColor: "var(--color-baby-blue)"
   },
 ]
 
