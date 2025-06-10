@@ -90,8 +90,9 @@
 }
 
 .linkCard[style*="--color-lavender"] p {
-  color: var(--color-white);
-}
+    color: var(--color-white);
+    text-shadow: 1px 1px 3px rgba(123, 123, 189, 0.4);
+  }
 
 /* Common Card Styles */
 .linkCard h2 {
